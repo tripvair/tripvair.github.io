@@ -7,41 +7,32 @@
   },
   "tags": [
     {
-      "name": "TripVair API - Public"
+      "name": "TripVair AI API"
     },
     {
-      "name": "TripVair API - Public/TripVair"
+      "name": "TripVair AI API/v1/airports"
     },
     {
-      "name": "TripVair API - Public/TripVair/airports"
+      "name": "TripVair AI API/v1/flights"
     },
     {
-      "name": "TripVair API - Public/TripVair/flights"
+      "name": "TripVair AI API/v1/skymind"
     },
     {
-      "name": "TripVair API - Public/TripVair/flighteye"
-    },
-    {
-      "name": "TripVair API - Public/TripVair/operators"
-    },
-    {
-      "name": "TripVair API - Public/TripVair/alerts"
-    },
-    {
-      "name": "TripVair API - Public/TripVair/miscellaneous"
+      "name": "TripVair AI API/v1/ops"
     }
   ],
   "paths": {
     "/airports": {
       "get": {
         "summary": "Get all airports",
-        "x-apidog-folder": "TripVair API - Public/TripVair/airports",
+        "x-apidog-folder": "TripVair AI API/v1/airports",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns the ICAO identifiers of all known airports. For airports that\ndo not have an ICAO identifier, the FAA LID identifier will be used.\nLinks for further information about each airport are included.\n",
         "operationId": "get_all_airports",
         "tags": [
-          "TripVair API - Public/TripVair/airports"
+          "TripVair AI API/v1/airports"
         ],
         "parameters": [
           {
@@ -86,13 +77,13 @@
     "/airports/{id}": {
       "get": {
         "summary": "Get static information about an airport",
-        "x-apidog-folder": "TripVair API - Public/TripVair/airports",
+        "x-apidog-folder": "TripVair AI API/v1/airports",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns information about an airport given an ICAO or LID airport code\nsuch as KLAX, KIAH, O07, etc. Data returned includes airport name,\ncity, state (when known), latitude, longitude, and timezone.\n",
         "operationId": "get_airport",
         "tags": [
-          "TripVair API - Public/TripVair/airports"
+          "TripVair AI API/v1/airports"
         ],
         "parameters": [
           {
@@ -140,13 +131,13 @@
     "/airports/{id}/canonical": {
       "get": {
         "summary": "Get the canonical code of an airport",
-        "x-apidog-folder": "TripVair API - Public/TripVair/airports",
+        "x-apidog-folder": "TripVair AI API/v1/airports",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns a list of ICAO airport codes corresponding to the given IATA or LID airport code.\nIATA codes can be identical to some LID codes, so if id_type is specified, only 1 ICAO\ncode will be returned. If no id_type is specified and there are two possible ICAO codes,\nboth will be returned.\n",
         "operationId": "get_airports_canonical",
         "tags": [
-          "TripVair API - Public/TripVair/airports"
+          "TripVair AI API/v1/airports"
         ],
         "parameters": [
           {
@@ -204,13 +195,13 @@
     "/airports/{id}/nearby": {
       "get": {
         "summary": "Get airports near an airport",
-        "x-apidog-folder": "TripVair API - Public/TripVair/airports",
+        "x-apidog-folder": "TripVair AI API/v1/airports",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns a list of airports located within a given distance from the\nspecified airport.\n",
         "operationId": "get_airports_near_airport",
         "tags": [
-          "TripVair API - Public/TripVair/airports"
+          "TripVair AI API/v1/airports"
         ],
         "parameters": [
           {
@@ -298,13 +289,13 @@
     "/airports/nearby": {
       "get": {
         "summary": "Get airports near a location",
-        "x-apidog-folder": "TripVair API - Public/TripVair/airports",
+        "x-apidog-folder": "TripVair AI API/v1/airports",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns a list of airports located within a given distance from the\ngiven location.\n",
         "operationId": "get_nearby_airports",
         "tags": [
-          "TripVair API - Public/TripVair/airports"
+          "TripVair AI API/v1/airports"
         ],
         "parameters": [
           {
@@ -402,13 +393,13 @@
     "/airports/{id}/delays": {
       "get": {
         "summary": "Get airport delay information",
-        "x-apidog-folder": "TripVair API - Public/TripVair/airports",
+        "x-apidog-folder": "TripVair AI API/v1/airports",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns a list of reason codes for delays at a specific airport. There\nmay be multiple reasons returned if there are multiple types of delays\nreported at an airport. Note that individual flights may be delayed\nwithout there being an airport delay returned by this endpoint.\n",
         "operationId": "get_airport_delays",
         "tags": [
-          "TripVair API - Public/TripVair/airports"
+          "TripVair AI API/v1/airports"
         ],
         "parameters": [
           {
@@ -456,13 +447,13 @@
     "/airports/{id}/flights": {
       "get": {
         "summary": "Get all flights for a given airport",
-        "x-apidog-folder": "TripVair API - Public/TripVair/airports",
+        "x-apidog-folder": "TripVair AI API/v1/airports",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns all recent and upcoming flights departing from or arriving at\nthe specified airport. Filtering/ordering behavior for the optional\nstart and end parameters for each type (`scheduled_departures`,\n`scheduled_arrivals`, `departures`, `arrivals`) match the behavior in\ntheir corresponding endpoints.\n",
         "operationId": "get_airport_flights",
         "tags": [
-          "TripVair API - Public/TripVair/airports"
+          "TripVair AI API/v1/airports"
         ],
         "parameters": [
           {
@@ -570,13 +561,13 @@
     "/airports/{id}/flights/departures": {
       "get": {
         "summary": "Get flights that have recently departed from an airport",
-        "x-apidog-folder": "TripVair API - Public/TripVair/airports",
+        "x-apidog-folder": "TripVair AI API/v1/airports",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns flights that have departed from an airport and not been\ndiverted, ordered by `actual_off` descending. The optional start and\nend parameters will be compared against `actual_off` to limit the\nflights returned. The start parameter's default value is 24 hours\nbefore the current time. The end parameter's default value is the\ncurrent time.\n",
         "operationId": "get_airport_flights_departed",
         "tags": [
-          "TripVair API - Public/TripVair/airports"
+          "TripVair AI API/v1/airports"
         ],
         "parameters": [
           {
@@ -684,13 +675,13 @@
     "/airports/{id}/flights/arrivals": {
       "get": {
         "summary": "Get flights that have recently arrived at an airport",
-        "x-apidog-folder": "TripVair API - Public/TripVair/airports",
+        "x-apidog-folder": "TripVair AI API/v1/airports",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns flights that have arrived at an airport, orderd by\n`actual_on` descending. The start parameter's default value is 24 hours\nbefore the current time. The end parameter's default value is the\ncurrent time.\n",
         "operationId": "get_airport_flights_arrived",
         "tags": [
-          "TripVair API - Public/TripVair/airports"
+          "TripVair AI API/v1/airports"
         ],
         "parameters": [
           {
@@ -798,13 +789,13 @@
     "/airports/{id}/flights/scheduled_arrivals": {
       "get": {
         "summary": "Get future flights arriving at an airport",
-        "x-apidog-folder": "TripVair API - Public/TripVair/airports",
+        "x-apidog-folder": "TripVair AI API/v1/airports",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns flights that are expected to arrive at an airport. This can\ninclude both undeparted and en route flights. Flights are ordered by\n`estimated_on` ascending. The optional start and end parameters will\nbe compared against `estimated_on` to limit the flights returned. The\nstart parameter's default value is 48 hours before the current time\n(this accounts for delayed flights). The end parameter's default value\nis 24 hours after the current time.\n",
         "operationId": "get_airport_flights_scheduled_arrivals",
         "tags": [
-          "TripVair API - Public/TripVair/airports"
+          "TripVair AI API/v1/airports"
         ],
         "parameters": [
           {
@@ -912,13 +903,13 @@
     "/airports/{id}/flights/to/{dest_id}": {
       "get": {
         "summary": "Get flights with a specific origin and destination",
-        "x-apidog-folder": "TripVair API - Public/TripVair/airports",
+        "x-apidog-folder": "TripVair AI API/v1/airports",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "This endpoint is quite similar to the `FindFlight` operator in prior\nversions of AeroAPI. Results may include both non-stop and one-stop\nflights. Note that because the returned flights can include multiple\nlegs, the response format differs from most other flight-returning\nendpoints. If the optional start or end query parameters are not\nprovided start will default to 1 day in the future, while end will\ndefault to 7 days in the past relative to the time the query is made.\n",
         "operationId": "get_flights_between_airports",
         "tags": [
-          "TripVair API - Public/TripVair/airports"
+          "TripVair AI API/v1/airports"
         ],
         "parameters": [
           {
@@ -1036,13 +1027,13 @@
     "/airports/delays": {
       "get": {
         "summary": "Get delay information for all airports with delays",
-        "x-apidog-folder": "TripVair API - Public/TripVair/airports",
+        "x-apidog-folder": "TripVair AI API/v1/airports",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns a list of airports with delays. There may be multiple reasons\nreturned per airport if there are multiple types of delays reported at\nan airport. Note that individual flights can be delayed without there\nbeing an airport-wide delay returned by this endpoint.\n",
         "operationId": "get_delays_for_all_airports",
         "tags": [
-          "TripVair API - Public/TripVair/airports"
+          "TripVair AI API/v1/airports"
         ],
         "parameters": [
           {
@@ -1087,13 +1078,13 @@
     "/airports/{id}/flights/scheduled_departures": {
       "get": {
         "summary": "Get future flights departing from an airport",
-        "x-apidog-folder": "TripVair API - Public/TripVair/airports",
+        "x-apidog-folder": "TripVair AI API/v1/airports",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns flights that are scheduled to depart from an airport or have\nrecently been cancelled, ordered by `estimated_off` (or `scheduled_off`\nif `estimated_off` is missing) ascending. The optional start and end\nparameters will be compared against `scheduled_off` to limit the\nflights returned. The start parameter's default value is 2 hours before\nthe current time. The end parameter's default value is 24 hours after\nthe current time.\n",
         "operationId": "get_airport_flights_scheduled_departures",
         "tags": [
-          "TripVair API - Public/TripVair/airports"
+          "TripVair AI API/v1/airports"
         ],
         "parameters": [
           {
@@ -1201,13 +1192,13 @@
     "/airports/{id}/weather/observations": {
       "get": {
         "summary": "Get weather conditions for given airport",
-        "x-apidog-folder": "TripVair API - Public/TripVair/airports",
+        "x-apidog-folder": "TripVair AI API/v1/airports",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns weather for an airport in the form of a decoded METAR, starting\nfrom the latest report and working backwards in time as more data is\nrequested. Data is provided in parsed, human-readable, and raw\nformats.\n",
         "operationId": "get_airport_weather_observations",
         "tags": [
-          "TripVair API - Public/TripVair/airports"
+          "TripVair AI API/v1/airports"
         ],
         "parameters": [
           {
@@ -1305,13 +1296,13 @@
     "/flights/{id}/position": {
       "get": {
         "summary": "Get flight's current position",
-        "x-apidog-folder": "TripVair API - Public/TripVair/flights",
+        "x-apidog-folder": "TripVair AI API/v1/flights",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns the latest position for a flight",
         "operationId": "get_flight_position",
         "tags": [
-          "TripVair API - Public/TripVair/flights"
+          "TripVair AI API/v1/flights"
         ],
         "parameters": [
           {
@@ -1359,13 +1350,13 @@
     "/flights/{ident}": {
       "get": {
         "summary": "Get information for a flight",
-        "x-apidog-folder": "TripVair API - Public/TripVair/flights",
+        "x-apidog-folder": "TripVair AI API/v1/flights",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns the flight info status summary for a registration, ident, or\nfa_flight_id.  If a fa_flight_id is specified then a maximum of 1\nflight is returned, unless the flight has been diverted in which case\nboth the original flight and any diversions will be returned with a\nduplicate fa_flight_id. If a registration or ident is specified,\napproximately 14 days of recent and scheduled flight information is\nreturned, ordered by `scheduled_out` (or `scheduled_off` if\n`scheduled_out` is missing) descending. Alternately, specify a start\nand end parameter to find your flight(s) of interest, including up to\n10 days of flight history.\n",
         "operationId": "get_flight",
         "tags": [
-          "TripVair API - Public/TripVair/flights"
+          "TripVair AI API/v1/flights"
         ],
         "parameters": [
           {
@@ -1463,13 +1454,13 @@
     "/airports/{id}/flights/counts": {
       "get": {
         "summary": "Get flight counts for an airport",
-        "x-apidog-folder": "TripVair API - Public/TripVair/airports",
+        "x-apidog-folder": "TripVair AI API/v1/airports",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns counts of flights for an airport broken down by flight status.\nThe returned categories are subtly different from what is returned from\nthe `/airports/{id}/flights` endpoints. Specifically, this operation\ndoes not include completed flights in its counts, and it does not count\ncancelled/diverted flights. It also does not strictly bound the time\nfor which scheduled flights are counted, so all future flights that\nTripVair knows about are included in the counts. See the response\nschema and documentation for the airport flights endpoints for more\ninformation.\n",
         "operationId": "get_airport_flights_count",
         "tags": [
-          "TripVair API - Public/TripVair/airports"
+          "TripVair AI API/v1/airports"
         ],
         "parameters": [
           {
@@ -1517,13 +1508,13 @@
     "/airports/{id}/weather/forecast": {
       "get": {
         "summary": "Get weather forecast for given airport",
-        "x-apidog-folder": "TripVair API - Public/TripVair/airports",
+        "x-apidog-folder": "TripVair AI API/v1/airports",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns the weather forecast for an airport in the form of a decoded TAF\n(Terminal Area Forecast). Only a single result is returned.\n",
         "operationId": "get_airport_weather_forecast",
         "tags": [
-          "TripVair API - Public/TripVair/airports"
+          "TripVair AI API/v1/airports"
         ],
         "parameters": [
           {
@@ -1604,13 +1595,13 @@
     "/airports/{id}/routes/{dest_id}": {
       "get": {
         "summary": "Get routes between 2 airports",
-        "x-apidog-folder": "TripVair API - Public/TripVair/airports",
+        "x-apidog-folder": "TripVair AI API/v1/airports",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns information about assigned IFR routings between two airports.\n",
         "operationId": "get_routes_between_airports",
         "tags": [
-          "TripVair API - Public/TripVair/airports"
+          "TripVair AI API/v1/airports"
         ],
         "parameters": [
           {
@@ -1708,13 +1699,13 @@
     "/flights/search/advanced": {
       "get": {
         "summary": "Search for flights using advanced syntax",
-        "x-apidog-folder": "TripVair API - Public/TripVair/flights",
+        "x-apidog-folder": "TripVair AI API/v1/flights",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns currently or recently airborne flights based on geospatial\nsearch parameters.\n\nQuery parameters include a latitude/longitude box, aircraft ident with\nwildcards, type with wildcards, prefix, origin airport,\ndestination airport, origin or destination airport, groundspeed, and\naltitude. It takes search terms in a single string comprising of\n{operator key value} elements and returns an array of flight\nstructures. Each search term must be enclosed in curly braces. Multiple\nsearch terms can be combined in an implicit boolean \"and\" by separating\nthe terms with at least one space. This function only searches flight\ndata representing approximately the last 24 hours. Codeshares and\nalternate idents are NOT searched when matching against the ident key.\n\nThe supported operators include (note that operators take different numbers of arguments):\n\n* false - results must have the specified boolean key set to a value of false. Example: {false arrived}\n* true - results must have the specified boolean key set to a value of true. Example: {true lifeguard}\n* null - results must have the specified key set to a null value. Example: {null waypoints}\n* notnull - results must have the specified key not set to a null value. Example: {notnull aircraftType}\n* = - results must have a key that exactly matches the specified value. Example: {= aircraftType C172}\n* != - results must have a key that must not match the specified value. Example: {!= prefix H}\n* < - results must have a key that is lexicographically less-than a specified value. Example: {< arrivalTime 1276811040}\n* \\> - results must have a key that is lexicographically greater-than a specified value. Example: {> circles 5}\n* <= - results must have a key that is lexicographically less-than-or-equal-to a specified value. Example: {<= alt 8000}\n* \\>= - results must have a key that is lexicographically greater-than-or-equal-to a specified value.\n* match - results must have a key that matches against a case-insensitive wildcard pattern. Example: {match ident AAL*}\n* notmatch - results must have a key that does not match against a case-insensitive wildcard pattern. Example: {notmatch aircraftType B76*}\n* range - results must have a key that is numerically between the two specified values. Example: {range alt 8000 20000}\n* in - results must have a key that exactly matches one of the specified values. Example: {in orig {KLAX KBUR KSNA KLGB}}\n* orig_or_dest - results must have either the origin or destination key exactly match one of the specified values. Example: {orig_or_dest {KLAX KBUR KSNA KLGB}}\n* airline - results will only include airline flight if the argument is 1, or will only include GA flights if the argument is 0. Example: {airline 1}\n* aircraftType - results must have an aircraftType key that matches one of the specified case-insensitive wildcard patterns. Example: {aircraftType {B76* B77*}}\n* ident - results must have an ident key that matches one of the specified case-insensitive wildcard patterns. Example: {ident {N123* N456* AAL* UAL*}}\n* ident_or_reg - results must have an ident key or was known to be operated by an aircraft registration that matches one of the specified case-insensitive wildcard patterns. Example: {ident_or_reg {N123* N456* AAL* UAL*}}\n\nThe supported key names include (note that not all of these key names are returned in the result structure, and some have slightly different names):\n\n* actualDepartureTime - Actual time of departure, or null if not departed yet. UNIX epoch timestamp seconds since 1970\n* aircraftType - aircraft type ID (for example: B763)\n* alt - altitude at last reported position (hundreds of feet or Flight Level)\n* altChange - altitude change indication (for example: \"C\" if climbing, \"D\" if descending, and empty if it is level)\n* arrivalTime - Actual time of arrival, or null if not arrived yet. UNIX epoch timestamp seconds since 1970\n* arrived - true if the flight has arrived at its destination.\n* cancelled - true if the flight has been cancelled. The meaning of cancellation is that the flight is no longer being tracked by TripVair. There are a number of reasons a flight may be cancelled including cancellation by the airline, but that will not always be the case.\n* cdt - Controlled Departure Time, set if there is a ground hold on the flight. UNIX epoch timestamp seconds since 1970\n* clock - Time of last received position. UNIX epoch timestamp seconds since 1970\n* cta - Controlled Time of Arrival, set if there is a ground hold on the flight. UNIX epoch timestamp seconds since 1970\n* dest - ICAO airport code of destination (for example: KLAX)\n* edt - Estimated Departure Time. Epoch timestamp seconds since 1970\n* eta - Estimated Time of Arrival. Epoch timestamp seconds since 1970\n* fdt - Field Departure Time. UNIX epoch timestamp seconds since 1970\n* firstPositionTime - Time when first reported position was received, or 0 if no position has been received yet. Epoch timestamp seconds since 1970\n* fixes - intersections and/or VORs along the route (for example: SLS AMERO ARTOM VODIR NOTOS ULAPA ACA NUXCO OLULA PERAS ALIPO UPN GDL KEDMA BRISA CUL PERTI CEN PPE ALTAR ASUTA JLI RONLD LAADY WYVIL OLDEE RAL PDZ ARNES BASET WELLZ CIVET)\n* fp - unique identifier assigned by TripVair for this flight, aka fa_flight_id.\n* gs - ground speed at last reported position, in kts.\n* heading - direction of travel at last reported position.\n* hiLat - highest latitude travelled by flight.\n* hiLon - highest longitude travelled by flight.\n* ident - flight identifier or registration of aircraft.\n* lastPositionTime - Time when last reported position was received, or 0 if no position has been received yet. Epoch timestamp seconds since 1970.\n* lat - latitude of last reported position.\n* lifeguard - true if a \"lifeguard\" rescue flight.\n* lon - longitude of last reported position.\n* lowLat - lowest latitude travelled by flight.\n* lowLon - lowest longitude travelled by flight.\n* ogta - Original Time of Arrival. UNIX epoch timestamp seconds since 1970\n* ogtd - Original Time of Departure. UNIX epoch timestamp seconds since 1970\n* orig - ICAO airport code of origin (for example: KIAH)\n* physClass - physical class (for example: J is jet)\n* prefix - A one or two character identifier prefix code (common values: G or GG Medevac, L Lifeguard, A Air Taxi, H Heavy, M Medium).\n* speed - ground speed, in kts.\n* status - Single letter code for current flight status, can be S Scheduled, F Filed, A Active, Z Completed, or X Cancelled.\n* updateType - data source of last position (P=projected, O=oceanic, Z=radar, A=ADS-B, M=multilateration, D=datalink, X=surface and near surface (ADS-B and ASDE-X), S=space-based).\n* waypoints - all of the intersections and VORs comprising the route\n",
         "operationId": "get_flights_by_advanced_search",
         "tags": [
-          "TripVair API - Public/TripVair/flights"
+          "TripVair AI API/v1/flights"
         ],
         "parameters": [
           {
@@ -1782,13 +1773,13 @@
     "/flights/{ident}/canonical": {
       "get": {
         "summary": "Get the canonical ident of a flight",
-        "x-apidog-folder": "TripVair API - Public/TripVair/flights",
+        "x-apidog-folder": "TripVair AI API/v1/flights",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "When the ident parameter is a code that could map to multiple other codes,\nthis endpoint returns an array of information about all the possible codes.\nAn optional ident type and country code can be provided to refine ambiguous\nidents to a single result. The ident type should either be designator or\nregistration to describe the ident being passed in. The country code should\nrepresent a country the operator of the flight operates within.\n",
         "operationId": "get_flights_canonical",
         "tags": [
-          "TripVair API - Public/TripVair/flights"
+          "TripVair AI API/v1/flights"
         ],
         "parameters": [
           {
@@ -1856,13 +1847,13 @@
     "/flights/{id}/route": {
       "get": {
         "summary": "Get flight's filed route",
-        "x-apidog-folder": "TripVair API - Public/TripVair/flights",
+        "x-apidog-folder": "TripVair AI API/v1/flights",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns information about a flight's filed route including coordinates,\nnames, and types of fixes along the route.  Not all flight routes can\nbe successfully decoded by this endpoint, particularly if the flight is\nnot entirely within the continental U.S. airspace, since this function\nonly has access to navaids within that area. If data on a waypoint is\nmissing then the type will be listed as \"UNKNOWN\".\n",
         "operationId": "get_flight_route",
         "tags": [
-          "TripVair API - Public/TripVair/flights"
+          "TripVair AI API/v1/flights"
         ],
         "parameters": [
           {
@@ -1923,13 +1914,13 @@
     "/operators": {
       "get": {
         "summary": "Get all operators.",
-        "x-apidog-folder": "TripVair API - Public/TripVair/operators",
+        "x-apidog-folder": "TripVair AI API/v1/ops",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns list of operator references (ICAO/IATA codes and URLs to access\nmore information).\n",
         "operationId": "get_all_operators",
         "tags": [
-          "TripVair API - Public/TripVair/operators"
+          "TripVair AI API/v1/ops"
         ],
         "parameters": [
           {
@@ -1974,13 +1965,13 @@
     "/flights/search": {
       "get": {
         "summary": "Search for flights",
-        "x-apidog-folder": "TripVair API - Public/TripVair/flights",
+        "x-apidog-folder": "TripVair AI API/v1/flights",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Search for airborne flights by matching against various parameters including\ngeospatial data. Uses a simplified query syntax compared to\n/flights/search/advanced.\n",
         "operationId": "get_flights_by_search",
         "tags": [
-          "TripVair API - Public/TripVair/flights"
+          "TripVair AI API/v1/flights"
         ],
         "parameters": [
           {
@@ -2048,13 +2039,13 @@
     "/foresight/flights/search/advanced": {
       "get": {
         "summary": "Search for flights, responses include Foresight data",
-        "x-apidog-folder": "TripVair API - Public/TripVair/flighteye",
+        "x-apidog-folder": "TripVair AI API/v1/skymind",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns currently or recently airborne flights based on geospatial\nsearch parameters. If available, flights' predicted OOOI fields will be\nset.\n",
         "operationId": "get_flights_by_advanced_search_with_foresight",
         "tags": [
-          "TripVair API - Public/TripVair/flighteye"
+          "TripVair AI API/v1/skymind"
         ],
         "parameters": [
           {
@@ -2122,13 +2113,13 @@
     "/foresight/flights/{ident}": {
       "get": {
         "summary": "Get information for a flight, including Foresight data",
-        "x-apidog-folder": "TripVair API - Public/TripVair/flighteye",
+        "x-apidog-folder": "TripVair AI API/v1/skymind",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns the flight info status summary for a registration, ident, or\nfa_flight_id, including all available predicted fields.  If a\nfa_flight_id is specified then a maximum of 1 flight is returned,\nunless the flight has been diverted in which case both the original\nflight and any diversions will be returned with a duplicate fa_flight_id.\n",
         "operationId": "get_flight_with_foresight",
         "tags": [
-          "TripVair API - Public/TripVair/flighteye"
+          "TripVair AI API/v1/skymind"
         ],
         "parameters": [
           {
@@ -2226,13 +2217,13 @@
     "/operators/{id}": {
       "get": {
         "summary": "Get static information for an operator.",
-        "x-apidog-folder": "TripVair API - Public/TripVair/operators",
+        "x-apidog-folder": "TripVair AI API/v1/ops",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns information for an operator such as their name, ICAO/IATA\ncodes, headquarter location, etc.\n",
         "operationId": "get_operator",
         "tags": [
-          "TripVair API - Public/TripVair/operators"
+          "TripVair AI API/v1/ops"
         ],
         "parameters": [
           {
@@ -2293,13 +2284,13 @@
     "/foresight/flights/{id}/position": {
       "get": {
         "summary": "Get flight's current position, including Foresight data",
-        "x-apidog-folder": "TripVair API - Public/TripVair/flighteye",
+        "x-apidog-folder": "TripVair AI API/v1/skymind",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns the latest position for a flight",
         "operationId": "get_flight_position_with_foresight",
         "tags": [
-          "TripVair API - Public/TripVair/flighteye"
+          "TripVair AI API/v1/skymind"
         ],
         "parameters": [
           {
@@ -2347,13 +2338,13 @@
     "/operators/{id}/canonical": {
       "get": {
         "summary": "Get the canonical code of an operator for API usage.",
-        "x-apidog-folder": "TripVair API - Public/TripVair/operators",
+        "x-apidog-folder": "TripVair AI API/v1/ops",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns all possible matches for a given operator code (ICAO or IATA).\nAn optional country code can be provided to refine ambiguous IATA codes\nto a single result. The country code should represent a country the\noperator operates within.\n",
         "operationId": "get_operators_canonical",
         "tags": [
-          "TripVair API - Public/TripVair/operators"
+          "TripVair AI API/v1/ops"
         ],
         "parameters": [
           {
@@ -2424,13 +2415,13 @@
     "/operators/{id}/flights": {
       "get": {
         "summary": "Get all of an operator's flights",
-        "x-apidog-folder": "TripVair API - Public/TripVair/operators",
+        "x-apidog-folder": "TripVair AI API/v1/ops",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns all recent and upcoming flights for this operator. Behaviour for\noptional start and end dates for each type returned (`scheduled`, `arrivals`,\n`enroute`) match the behaviour in their corresponding endpoints.\n",
         "operationId": "get_operator_flights",
         "tags": [
-          "TripVair API - Public/TripVair/operators"
+          "TripVair AI API/v1/ops"
         ],
         "parameters": [
           {
@@ -2531,13 +2522,13 @@
     "/operators/{id}/flights/scheduled": {
       "get": {
         "summary": "Get scheduled flights",
-        "x-apidog-folder": "TripVair API - Public/TripVair/operators",
+        "x-apidog-folder": "TripVair AI API/v1/ops",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns flights for this operator that are scheduled to depart or have\nrecently been cancelled, ordered by `estimated_off` (or `scheduled_off`\nif `estimated_off` is missing) ascending. The optional start and end\nparameters will be compared against `scheduled_off` to limit the\nflights returned. If start is not specified, flights with a\n`scheduled_off` or cancellation time no further than two hours into the\npast will be returned. If end is not specified, there is no guaranteed\nbound for how far in the future scheduled flights will be returned (it\nwill typically be around 48 hours in the future for commercial flights,\nthough).\n",
         "operationId": "get_operator_flights_scheduled",
         "tags": [
-          "TripVair API - Public/TripVair/operators"
+          "TripVair AI API/v1/ops"
         ],
         "parameters": [
           {
@@ -2638,13 +2629,13 @@
     "/operators/{id}/flights/arrivals": {
       "get": {
         "summary": "Get arrived flights",
-        "x-apidog-folder": "TripVair API - Public/TripVair/operators",
+        "x-apidog-folder": "TripVair AI API/v1/ops",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns flights for this operator that have departed and subsequently\narrived, ordered by `actual_on` descending. The optional start and end\nparameters will be compared against `actual_on` to limit the flights\nreturned. The start parameter's default value is 24 hours before the\ncurrent time. The end parameter's default value is the current time.\n",
         "operationId": "get_operator_flights_arrived",
         "tags": [
-          "TripVair API - Public/TripVair/operators"
+          "TripVair AI API/v1/ops"
         ],
         "parameters": [
           {
@@ -2745,13 +2736,13 @@
     "/operators/{id}/flights/counts": {
       "get": {
         "summary": "Get flight counts for operator",
-        "x-apidog-folder": "TripVair API - Public/TripVair/operators",
+        "x-apidog-folder": "TripVair AI API/v1/ops",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns counts of both airborne and recently operated flights for\noperator.\n",
         "operationId": "get_operator_flights_count",
         "tags": [
-          "TripVair API - Public/TripVair/operators"
+          "TripVair AI API/v1/ops"
         ],
         "parameters": [
           {
@@ -2812,13 +2803,13 @@
     "/operators/{id}/flights/enroute": {
       "get": {
         "summary": "Get en route flights",
-        "x-apidog-folder": "TripVair API - Public/TripVair/operators",
+        "x-apidog-folder": "TripVair AI API/v1/ops",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns flights for this operator that have departed and are currently\nen route, ordered by `estimated_on` ascending. The optional start and\nend parameters will be compared against `estimated_on` to limit the\nflights returned. The start parameter's default value is 48 hours\nbefore the current time (this accounts for delayed flights). There is\nno default end bound.\n",
         "operationId": "get_operator_flights_enroute",
         "tags": [
-          "TripVair API - Public/TripVair/operators"
+          "TripVair AI API/v1/ops"
         ],
         "parameters": [
           {
@@ -2919,13 +2910,13 @@
     "/flights/{id}/track": {
       "get": {
         "summary": "Get flight's track",
-        "x-apidog-folder": "TripVair API - Public/TripVair/flights",
+        "x-apidog-folder": "TripVair AI API/v1/flights",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns the track for a flight as an array of positions.",
         "operationId": "get_flight_track",
         "tags": [
-          "TripVair API - Public/TripVair/flights"
+          "TripVair AI API/v1/flights"
         ],
         "parameters": [
           {
@@ -2983,13 +2974,13 @@
     "/flights/search/positions": {
       "get": {
         "summary": "Search for flight positions",
-        "x-apidog-folder": "TripVair API - Public/TripVair/flights",
+        "x-apidog-folder": "TripVair AI API/v1/flights",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns flight positions based on geospatial search parameters.  This\nallows you to locate flights that have ever flown within a specific a\nlatitude/longitude box, groundspeed, and altitude. It takes search\nterms in a single string comprising of {operator key value} elements\nand returns an array of flight structures. Each search term must be\nenclosed in curly braces. Multiple search terms can be combined in an\nimplicit boolean \"and\" by separating the terms with at least one space.\nThis function only searches flight data representing approximately the\nlast 24 hours.\n\nThe supported operators include (note that operators take different numbers of arguments):\n\n* false - results must have the specified boolean key set to a value of false. Example: {false preferred}\n* true - results must have the specified boolean key set to a value of true. Example: {true preferred}\n* null - results must have the specified key set to a null value. Example: {null waypoints}\n* notnull - results must have the specified key not set to a null value. Example: {notnull aircraftType}\n* = - results must have a key that exactly matches the specified value. Example: {= fp C172}\n* != - results must have a key that must not match the specified value. Example: {!= prefix H}\n* < - results must have a key that is lexicographically less-than a specified value. Example: {< arrivalTime 1276811040}\n* \\> - results must have a key that is lexicographically greater-than a specified value. Example: {> circles 5}\n* <= - results must have a key that is lexicographically less-than-or-equal-to a specified value. Example: {<= alt 8000}\n* \\>= - results must have a key that is lexicographically greater-than-or-equal-to a specified value.\n* match - results must have a key that matches against a case-insensitive wildcard pattern. Example: {match ident AAL*}\n* notmatch - results must have a key that does not match against a case-insensitive wildcard pattern. Example: {notmatch aircraftType B76*}\n* range - results must have a key that is numerically between the two specified values. Example: {range alt 8000 20000}\n* in - results must have a key that exactly matches one of the specified values. Example: {in orig {KLAX KBUR KSNA KLGB}}\n\nThe supported key names include (note that not all of these key names are returned in the result structure, and some have slightly different names):\n\n* alt - Altitude, measured in hundreds of feet or Flight Level.\n* altChange - a one-character code indicating the change in altitude.\n* cid - a three-character cid code\n* clock - UNIX epoch timestamp seconds since 1970\n* fp - unique identifier assigned by TripVair for this flight, aka fa_flight_id.\n* gs - ground speed, measured in kts.\n* lat - latitude of the reported position.\n* lon - longitude of the reported position\n* updateType - source of the last reported position (P=projected, O=oceanic, Z=radar, A=ADS-B, M=multilateration, D=datalink, X=surface and near surface (ADS-B and ASDE-X), S=space-based)\n",
         "operationId": "get_flights_by_position_search",
         "tags": [
-          "TripVair API - Public/TripVair/flights"
+          "TripVair AI API/v1/flights"
         ],
         "parameters": [
           {
@@ -3067,13 +3058,13 @@
     "/flights/search/count": {
       "get": {
         "summary": "Get count of flights matching search parameters",
-        "x-apidog-folder": "TripVair API - Public/TripVair/flights",
+        "x-apidog-folder": "TripVair AI API/v1/flights",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Full search query documentation is available at the /flights/search\nendpoint.\n",
         "operationId": "get_flights_count_by_search",
         "tags": [
-          "TripVair API - Public/TripVair/flights"
+          "TripVair AI API/v1/flights"
         ],
         "parameters": [
           {
@@ -3108,13 +3099,13 @@
     "/flights/{ident}/intents": {
       "post": {
         "summary": "Submit a Flight Intent",
-        "x-apidog-folder": "TripVair API - Public/TripVair/flights",
+        "x-apidog-folder": "TripVair AI API/v1/flights",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "This operation informs TripVair of an upcoming (or recently\ndeparted) flight. This information is used solely by TripVair for\nimproving the accuracy of flight tracking. This method does not\ntransmit to any ANSP/ATC facility for flight separation or operational\nservices. Access to this endpoint requires special account\nauthorization. The TripVair account must also be subscribed to\nTripVair Global and the specified registration or ident must be on\nthe Global account.\n",
         "operationId": "post_flights_by_ident",
         "tags": [
-          "TripVair API - Public/TripVair/flights"
+          "TripVair AI API/v1/flights"
         ],
         "parameters": [
           {
@@ -3172,13 +3163,13 @@
     "/flights/{id}/map": {
       "get": {
         "summary": "Get an image of a flight's track on a map",
-        "x-apidog-folder": "TripVair API - Public/TripVair/flights",
+        "x-apidog-folder": "TripVair AI API/v1/flights",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns a flight's track as a base64-encoded image. Image can contain a\nvariety of additional data layers beyond just the track.\n",
         "operationId": "get_flight_map",
         "tags": [
-          "TripVair API - Public/TripVair/flights"
+          "TripVair AI API/v1/flights"
         ],
         "parameters": [
           {
@@ -3311,1241 +3302,10 @@
         },
         "x-run-in-apidog": "https://www.apidog.com/web/project/347663/apis/api-3658828-run"
       }
-    },
-    "/alerts": {
-      "get": {
-        "summary": "Get all configured alerts",
-        "x-apidog-folder": "TripVair API - Public/TripVair/alerts",
-        "x-apidog-status": "released",
-        "deprecated": false,
-        "description": "Returns all configured alerts for the TripVair account (this\nincludes alerts configured through other means by the TripVair user\nowning the AeroAPI account like TripVair's website or mobile apps).\n",
-        "operationId": "get_all_alerts",
-        "tags": [
-          "TripVair API - Public/TripVair/alerts"
-        ],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "List of all alerts.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {},
-                  "x-apidog-orders": [],
-                  "x-apidog-ignore-properties": []
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apidog": "https://www.apidog.com/web/project/347663/apis/api-3658829-run"
-      },
-      "post": {
-        "summary": "Create new alert",
-        "x-apidog-folder": "TripVair API - Public/TripVair/alerts",
-        "x-apidog-status": "released",
-        "deprecated": false,
-        "description": "Create a new AeroAPI flight alert. When the alert is triggered, a\ncallback mechanism will be used to notify the address set via the\n/alerts/endpoint endpoint. Each callback will be charged as a query.\n",
-        "operationId": "create_alert",
-        "tags": [
-          "TripVair API - Public/TripVair/alerts"
-        ],
-        "parameters": [],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/alerts_body"
-              },
-              "example": ""
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Alert created successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {},
-                  "x-apidog-orders": [],
-                  "x-apidog-ignore-properties": []
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid parameters specified (invalid ident, origin, destination, aircraft_type, dates or missing events) or alert configured would trigger more\nthan max_weekly delivered alerts per week.\n",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {},
-                  "x-apidog-orders": [],
-                  "x-apidog-ignore-properties": []
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apidog": "https://www.apidog.com/web/project/347663/apis/api-3658830-run"
-      }
-    },
-    "/alerts/{id}": {
-      "get": {
-        "summary": "Get specific alert",
-        "x-apidog-folder": "TripVair API - Public/TripVair/alerts",
-        "x-apidog-status": "released",
-        "deprecated": false,
-        "description": "Returns the configuration data for an alert with the specified ID.\n",
-        "operationId": "get_alert",
-        "tags": [
-          "TripVair API - Public/TripVair/alerts"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "The ID of the alert to fetch or update",
-            "required": true,
-            "example": "",
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Returns alert configuration structure.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {},
-                  "x-apidog-orders": [],
-                  "x-apidog-ignore-properties": []
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "No such alert exists.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {},
-                  "x-apidog-orders": [],
-                  "x-apidog-ignore-properties": []
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apidog": "https://www.apidog.com/web/project/347663/apis/api-3658831-run"
-      },
-      "put": {
-        "summary": "Modify specific alert",
-        "x-apidog-folder": "TripVair API - Public/TripVair/alerts",
-        "x-apidog-status": "released",
-        "deprecated": false,
-        "description": "Modifies the configuration for an alert with the specified ID\n",
-        "operationId": "update_alert",
-        "tags": [
-          "TripVair API - Public/TripVair/alerts"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "The ID of the alert to fetch or update",
-            "required": true,
-            "example": "",
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/alerts_id_body"
-              },
-              "example": ""
-            }
-          }
-        },
-        "responses": {
-          "204": {
-            "description": "Alert modified",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {},
-                  "x-apidog-orders": [],
-                  "x-apidog-ignore-properties": []
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid parameters specified (invalid ident, origin, destination, aircraft_type, dates or missing events) or alert configured would trigger more than max_weekly delivered alerts per week.\n",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {},
-                  "x-apidog-orders": [],
-                  "x-apidog-ignore-properties": []
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "No such alert exists.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {},
-                  "x-apidog-orders": [],
-                  "x-apidog-ignore-properties": []
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apidog": "https://www.apidog.com/web/project/347663/apis/api-3658832-run"
-      },
-      "delete": {
-        "summary": "Delete specific alert",
-        "x-apidog-folder": "TripVair API - Public/TripVair/alerts",
-        "x-apidog-status": "released",
-        "deprecated": false,
-        "description": "Deletes specific alert with given ID\n",
-        "operationId": "delete_alert",
-        "tags": [
-          "TripVair API - Public/TripVair/alerts"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "The ID of the alert to fetch or update",
-            "required": true,
-            "example": "",
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Alert deleted.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {},
-                  "x-apidog-orders": [],
-                  "x-apidog-ignore-properties": []
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid id.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {},
-                  "x-apidog-orders": [],
-                  "x-apidog-ignore-properties": []
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apidog": "https://www.apidog.com/web/project/347663/apis/api-3658833-run"
-      }
-    },
-    "/alerts/endpoint": {
-      "get": {
-        "summary": "Get configured alert callback URL",
-        "x-apidog-folder": "TripVair API - Public/TripVair/alerts",
-        "x-apidog-status": "released",
-        "deprecated": false,
-        "description": "Returns URL that will be POSTed to for alerts that are delivered via AeroAPI.\n",
-        "operationId": "get_alerts_endpoint",
-        "tags": [
-          "TripVair API - Public/TripVair/alerts"
-        ],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "Returns endpoint URL.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {},
-                  "x-apidog-orders": [],
-                  "x-apidog-ignore-properties": []
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Failed to get endpoint or no endpoint set.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {},
-                  "x-apidog-orders": [],
-                  "x-apidog-ignore-properties": []
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apidog": "https://www.apidog.com/web/project/347663/apis/api-3658834-run"
-      },
-      "delete": {
-        "summary": "Remove and disable alert callback URL",
-        "x-apidog-folder": "TripVair API - Public/TripVair/alerts",
-        "x-apidog-status": "released",
-        "deprecated": false,
-        "description": "Remove the URL that will be POSTed to for alerts that are delivered via\nAeroAPI, effectively disabling alert delivery.\n",
-        "operationId": "delete_alerts_endpoint",
-        "tags": [
-          "TripVair API - Public/TripVair/alerts"
-        ],
-        "parameters": [],
-        "responses": {
-          "204": {
-            "description": "Endpoint successfully removed.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {},
-                  "x-apidog-orders": [],
-                  "x-apidog-ignore-properties": []
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Failed to delete endpoint.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {},
-                  "x-apidog-orders": [],
-                  "x-apidog-ignore-properties": []
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apidog": "https://www.apidog.com/web/project/347663/apis/api-3658835-run"
-      },
-      "put": {
-        "summary": "Set alert callback URL",
-        "x-apidog-folder": "TripVair API - Public/TripVair/alerts",
-        "x-apidog-status": "released",
-        "deprecated": false,
-        "description": "Updates the URL that will be POSTed to for alerts that are delivered via AeroAPI.\n",
-        "operationId": "set_alerts_endpoint",
-        "tags": [
-          "TripVair API - Public/TripVair/alerts"
-        ],
-        "parameters": [],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/alerts_endpoint_body"
-              },
-              "example": ""
-            }
-          }
-        },
-        "responses": {
-          "204": {
-            "description": "Endpoint updated successfully, empty response.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {},
-                  "x-apidog-orders": [],
-                  "x-apidog-ignore-properties": []
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad address, missing hostname, or unsupported address protocol.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {},
-                  "x-apidog-orders": [],
-                  "x-apidog-ignore-properties": []
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apidog": "https://www.apidog.com/web/project/347663/apis/api-3658837-run"
-      }
-    },
-    "/aircraft/types/{type}": {
-      "get": {
-        "summary": "Get information about an aircraft type",
-        "x-apidog-folder": "TripVair API - Public/TripVair/miscellaneous",
-        "x-apidog-status": "released",
-        "deprecated": false,
-        "description": "Returns information about an aircraft type, given an ICAO aircraft type designator string.\nData returned includes the description, type, manufacturer, engine type, and engine\ncount.\n",
-        "operationId": "get_flight_type",
-        "tags": [
-          "TripVair API - Public/TripVair/miscellaneous"
-        ],
-        "parameters": [
-          {
-            "name": "type",
-            "in": "path",
-            "description": "The ICAO aircraft type designator for the aircraft to fetch information for\n",
-            "required": true,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {},
-                  "x-apidog-orders": [],
-                  "x-apidog-ignore-properties": []
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Incorrect parameters. Type must be an ICAO aircraft type designator string.\n",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {},
-                  "x-apidog-orders": [],
-                  "x-apidog-ignore-properties": []
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apidog": "https://www.apidog.com/web/project/347663/apis/api-3658836-run"
-      }
-    },
-    "/schedules/{date_start}/{date_end}": {
-      "get": {
-        "summary": "Get scheduled flights",
-        "x-apidog-folder": "TripVair API - Public/TripVair/miscellaneous",
-        "x-apidog-status": "released",
-        "deprecated": false,
-        "description": "Returns scheduled flights that have been published by airlines. These\nschedules are available for up to three months in the past as well as\none year into the future.\n",
-        "operationId": "get_schedules_by_date",
-        "tags": [
-          "TripVair API - Public/TripVair/miscellaneous"
-        ],
-        "parameters": [
-          {
-            "name": "date_start",
-            "in": "path",
-            "description": "Datetime or date of earliest scheduled flight departure to return. This\nmust be no earlier than 3 months in the past and cannot be more than 3 weeks\nbefore date_end. Violating either constraint will result in an error.\nIf using date instead of datetime, then the time will default to 00:00:00Z.\n",
-            "required": true,
-            "example": "\"2021-12-31T19:59:59.000Z\"",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "date_end",
-            "in": "path",
-            "description": "Datetime or date of latest scheduled flight departure to return. This must\nbe no later than 1 year in the future and cannot be more than 3 weeks after\ndate_start. Violating either constraint will result in an error. If using\ndate instead of datetime, then the time will default to 00:00:00Z. Thus,\nthe next day's date should be specified if one day of data is desired when\nusing date instead of datetime.\n",
-            "required": true,
-            "example": "\"2021-12-31T19:59:59.000Z\"",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "origin",
-            "in": "query",
-            "description": "Only return flights with this origin airport. ICAO or IATA airport codes\ncan be provided.\n",
-            "required": false,
-            "example": "KIAH",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "destination",
-            "in": "query",
-            "description": "Only return flights with this destination airport. ICAO or IATA airport codes\ncan be provided.\n",
-            "required": false,
-            "example": "KIAH",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "airline",
-            "in": "query",
-            "description": "Only return flights flown by this carrier. ICAO or IATA carrier codes\ncan be provided.\n",
-            "required": false,
-            "example": "UAL",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "flight_number",
-            "in": "query",
-            "description": "Only return flights with this flight number.",
-            "required": false,
-            "example": "",
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "include_codeshares",
-            "in": "query",
-            "description": "Flag indicating whether codeshares should be returned as well.\n",
-            "required": false,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "max_pages",
-            "in": "query",
-            "description": "Maximum number of pages to fetch. This is an upper limit and not a guarantee of how many pages will be returned.",
-            "required": false,
-            "example": "",
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "cursor",
-            "in": "query",
-            "description": "Opaque value used to get the next batch of data from a paged collection.\n",
-            "required": false,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {},
-                  "x-apidog-orders": [],
-                  "x-apidog-ignore-properties": []
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Incorrect parameter(s). Date_start and date_end must be within time constraints and ISO 8601 format (ex. 1970-01-01T00:00:00Z). Airline and flight_number, if present, must be valid.\n",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {},
-                  "x-apidog-orders": [],
-                  "x-apidog-ignore-properties": []
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apidog": "https://www.apidog.com/web/project/347663/apis/api-3658838-run"
-      }
-    },
-    "/aircraft/{ident}/owner": {
-      "get": {
-        "summary": "Get the owner of an aircraft",
-        "x-apidog-folder": "TripVair API - Public/TripVair/miscellaneous",
-        "x-apidog-status": "released",
-        "deprecated": false,
-        "description": "Returns information about the owner of an aircraft, given a flight number\nor aircraft registration. Data returned includes owner's name, location (typically\ncity and state), and website, if any. Codeshares and alternate idents are\nautomatically searched.\n",
-        "operationId": "get_aircraft_owner",
-        "tags": [
-          "TripVair API - Public/TripVair/miscellaneous"
-        ],
-        "parameters": [
-          {
-            "name": "ident",
-            "in": "path",
-            "description": "The ident or registration of the aircraft",
-            "required": true,
-            "example": "RPA4854",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {},
-                  "x-apidog-orders": [],
-                  "x-apidog-ignore-properties": []
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Incorrect or missing ident. It should be a flight number or a tail number.\n",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {},
-                  "x-apidog-orders": [],
-                  "x-apidog-ignore-properties": []
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apidog": "https://www.apidog.com/web/project/347663/apis/api-3658839-run"
-      }
-    },
-    "/disruption_counts/{entity_type}/{id}": {
-      "get": {
-        "summary": "Get flight disruption statistics for a particular entity",
-        "x-apidog-folder": "TripVair API - Public/TripVair/miscellaneous",
-        "x-apidog-status": "released",
-        "deprecated": false,
-        "description": "Returns flight cancellation/delay counts in the specified time period\nfor a particular airline or airport.\n",
-        "operationId": "get_disruption_counts",
-        "tags": [
-          "TripVair API - Public/TripVair/miscellaneous"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "The ICAO code for the airline or ID for the airport (ICAO, IATA, or LID)\nfor which you are fetching disruption statistics.  For airport ID,\n[ICAO is highly preferred](/aeroapi/portal/resources#icaoCode) to prevent ambiguity.\n",
-            "required": true,
-            "example": "KHOU",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "entity_type",
-            "in": "path",
-            "description": "The type of entity to get disruption statistics for.",
-            "required": true,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "time_period",
-            "in": "query",
-            "description": "",
-            "required": false,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {},
-                  "x-apidog-orders": [],
-                  "x-apidog-ignore-properties": []
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Incorrect parameters. Entity_type and time_period must be one of the specified values. Entity_type cannot be empty. id must be a valid operator or airport code.\n",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {},
-                  "x-apidog-orders": [],
-                  "x-apidog-ignore-properties": []
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apidog": "https://www.apidog.com/web/project/347663/apis/api-3658840-run"
-      }
-    },
-    "/disruption_counts/{entity_type}": {
-      "get": {
-        "summary": "Get global flight disruption statistics",
-        "x-apidog-folder": "TripVair API - Public/TripVair/miscellaneous",
-        "x-apidog-status": "released",
-        "deprecated": false,
-        "description": "Returns overall flight cancellation/delay counts in the specified time\nperiod for either all airlines or all airports.\n",
-        "operationId": "get_all_disruption_counts",
-        "tags": [
-          "TripVair API - Public/TripVair/miscellaneous"
-        ],
-        "parameters": [
-          {
-            "name": "entity_type",
-            "in": "path",
-            "description": "The type of entity to get disruption statistics for.",
-            "required": true,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "time_period",
-            "in": "query",
-            "description": "",
-            "required": false,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "max_pages",
-            "in": "query",
-            "description": "Maximum number of pages to fetch. This is an upper limit and not a guarantee of how many pages will be returned.",
-            "required": false,
-            "example": "",
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "cursor",
-            "in": "query",
-            "description": "Opaque value used to get the next batch of data from a paged collection.\n",
-            "required": false,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {},
-                  "x-apidog-orders": [],
-                  "x-apidog-ignore-properties": []
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Incorrect parameters. Entity_type and time_period must be one of the specified values. Entity_type cannot be empty.\n",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {},
-                  "x-apidog-orders": [],
-                  "x-apidog-ignore-properties": []
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apidog": "https://www.apidog.com/web/project/347663/apis/api-3658841-run"
-      }
     }
   },
   "components": {
     "schemas": {
-      "alerts_endpoint_body": {
-        "required": [
-          "url"
-        ],
-        "type": "object",
-        "properties": {
-          "url": {
-            "type": "string",
-            "description": "URL that will be POSTed to for flight alerts.",
-            "format": "uri",
-            "nullable": true
-          }
-        },
-        "description": "Configuration for a URL to which AeroAPI alerts should be delivered via HTTP POST.\n",
-        "x-apidog-orders": [
-          "url"
-        ],
-        "x-apidog-folder": "Schemas",
-        "x-apidog-ignore-properties": []
-      },
-      "alerts_id_body": {
-        "allOf": [
-          {
-            "required": [
-              "aircraft_type",
-              "changed",
-              "created",
-              "description",
-              "destination",
-              "end",
-              "eta",
-              "events",
-              "id",
-              "ident",
-              "origin",
-              "start",
-              "user_ident"
-            ],
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "integer",
-                "description": "Unique ID for alert, can be used to update or delete alert.",
-                "readOnly": true
-              },
-              "description": {
-                "type": "string",
-                "description": "Server-generated textual description of alert. May include carrier,\nflight number, origin, destination, etc.\n",
-                "readOnly": true
-              },
-              "ident": {
-                "type": "string",
-                "description": "Ident to alert on. This value may be modified based on codeshare\nresolution. If that occurs, the originally provided ident will be\npreserved in the user_ident field.\n",
-                "nullable": true
-              },
-              "ident_icao": {
-                "type": "string",
-                "description": "ICAO ident to alert on\n",
-                "readOnly": true,
-                "nullable": true
-              },
-              "ident_iata": {
-                "type": "string",
-                "description": "IATA ident to alert on\n",
-                "readOnly": true,
-                "nullable": true
-              },
-              "origin": {
-                "type": "string",
-                "description": "Origin airport ICAO, IATA, or LID code to alert on.",
-                "nullable": true
-              },
-              "origin_icao": {
-                "type": "string",
-                "description": "Origin airport ICAO code to alert on.",
-                "readOnly": true,
-                "nullable": true
-              },
-              "origin_iata": {
-                "type": "string",
-                "description": "Origin airport IATA code to alert on.",
-                "readOnly": true,
-                "nullable": true
-              },
-              "origin_lid": {
-                "type": "string",
-                "description": "Origin airport LID code to alert on.",
-                "readOnly": true,
-                "nullable": true
-              },
-              "destination": {
-                "type": "string",
-                "description": "Destination airport ICAO, IATA, or LID code to alert on.",
-                "nullable": true
-              },
-              "destination_icao": {
-                "type": "string",
-                "description": "Destination airport ICAO code to alert on.",
-                "readOnly": true,
-                "nullable": true
-              },
-              "destination_iata": {
-                "type": "string",
-                "description": "Destination airport IATA code to alert on.",
-                "readOnly": true,
-                "nullable": true
-              },
-              "destination_lid": {
-                "type": "string",
-                "description": "Destination airport LID code to alert on.",
-                "readOnly": true,
-                "nullable": true
-              },
-              "aircraft_type": {
-                "type": "string",
-                "description": "Aircraft type ICAO code to alert on.",
-                "nullable": true
-              },
-              "created": {
-                "type": "string",
-                "description": "Time that the alert was created.",
-                "format": "date-time",
-                "readOnly": true,
-                "examples": [
-                  "2021-12-31T19:59:59.000Z"
-                ]
-              },
-              "changed": {
-                "type": "string",
-                "description": "Time that the alert was last modified.",
-                "format": "date-time",
-                "readOnly": true,
-                "examples": [
-                  "2021-12-31T19:59:59.000Z"
-                ]
-              },
-              "start": {
-                "type": "string",
-                "description": "Start date of alert. Should be in departure airport's\ntimezone.\n",
-                "format": "date",
-                "nullable": true
-              },
-              "end": {
-                "type": "string",
-                "description": "End date of alert (inclusive). Should be in departure airport's\ntimezone.\n",
-                "format": "date",
-                "nullable": true
-              },
-              "max_weekly": {
-                "type": "integer",
-                "description": "Reject the new alert if the estimated number of triggered alerts per\nweek based on historical flight trends would exceed this value. Check\nis only applied at alert creation/modification and does not prevent\nalerts from being delivered even if they exceed the given amount.\n",
-                "writeOnly": true,
-                "default": 1000
-              },
-              "user_ident": {
-                "type": "string",
-                "description": "Originally specified ident.",
-                "readOnly": true,
-                "nullable": true
-              },
-              "eta": {
-                "type": "integer",
-                "description": "How many minutes before a flight's ETA that an alert should be\ndelivered. Alerts will only be delivered after the flight has been in\nthe air for at least 15 minutes. Set to 0 to disable.\n",
-                "default": 0
-              },
-              "events": {
-                "$ref": "#/components/schemas/alerts_events"
-              }
-            },
-            "x-apidog-orders": [
-              "id",
-              "description",
-              "ident",
-              "ident_icao",
-              "ident_iata",
-              "origin",
-              "origin_icao",
-              "origin_iata",
-              "origin_lid",
-              "destination",
-              "destination_icao",
-              "destination_iata",
-              "destination_lid",
-              "aircraft_type",
-              "created",
-              "changed",
-              "start",
-              "end",
-              "max_weekly",
-              "user_ident",
-              "eta",
-              "events"
-            ],
-            "x-apidog-ignore-properties": []
-          },
-          {
-            "required": [
-              "enabled"
-            ],
-            "type": "object",
-            "properties": {
-              "enabled": {
-                "type": "boolean",
-                "description": "Whether alert is enabled."
-              }
-            },
-            "x-apidog-orders": [
-              "enabled"
-            ],
-            "x-apidog-ignore-properties": []
-          }
-        ],
-        "x-apidog-folder": "Schemas"
-      },
-      "alerts_events": {
-        "required": [
-          "arrival",
-          "cancelled",
-          "departure",
-          "diverted",
-          "filed"
-        ],
-        "type": "object",
-        "properties": {
-          "arrival": {
-            "type": "boolean",
-            "description": "Whether alerts should be delivered on arrival. TripVair\nGlobal customers will also receive \\\"taxi stop\\\" Ready To Taxiâ„¢\nalerts unless they've opted out.\n",
-            "default": false
-          },
-          "cancelled": {
-            "type": "boolean",
-            "description": "Whether alerts should be delivered on cancellation by the airline\n",
-            "default": false
-          },
-          "departure": {
-            "type": "boolean",
-            "description": "Whether alerts should be delivered on departure. TripVair\nGlobal customers will also receive \\\"power on\\\" and \\\"taxi start\\\"\nReady To Taxiâ„¢ alerts unless they've opted out.\n",
-            "default": false
-          },
-          "diverted": {
-            "type": "boolean",
-            "description": "Whether alerts should be delivered on diversion",
-            "default": false
-          },
-          "filed": {
-            "type": "boolean",
-            "description": "Whether alerts should be delivered on filing",
-            "default": false
-          }
-        },
-        "x-apidog-orders": [
-          "arrival",
-          "cancelled",
-          "departure",
-          "diverted",
-          "filed"
-        ],
-        "x-apidog-folder": "Schemas",
-        "x-apidog-ignore-properties": []
-      },
-      "alerts_body": {
-        "required": [
-          "aircraft_type",
-          "changed",
-          "created",
-          "description",
-          "destination",
-          "end",
-          "eta",
-          "events",
-          "id",
-          "ident",
-          "origin",
-          "start",
-          "user_ident"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "description": "Unique ID for alert, can be used to update or delete alert.",
-            "readOnly": true
-          },
-          "description": {
-            "type": "string",
-            "description": "Server-generated textual description of alert. May include carrier,\nflight number, origin, destination, etc.\n",
-            "readOnly": true
-          },
-          "ident": {
-            "type": "string",
-            "description": "Ident to alert on. This value may be modified based on codeshare\nresolution. If that occurs, the originally provided ident will be\npreserved in the user_ident field.\n",
-            "nullable": true
-          },
-          "ident_icao": {
-            "type": "string",
-            "description": "ICAO ident to alert on\n",
-            "readOnly": true,
-            "nullable": true
-          },
-          "ident_iata": {
-            "type": "string",
-            "description": "IATA ident to alert on\n",
-            "readOnly": true,
-            "nullable": true
-          },
-          "origin": {
-            "type": "string",
-            "description": "Origin airport ICAO, IATA, or LID code to alert on.",
-            "nullable": true
-          },
-          "origin_icao": {
-            "type": "string",
-            "description": "Origin airport ICAO code to alert on.",
-            "readOnly": true,
-            "nullable": true
-          },
-          "origin_iata": {
-            "type": "string",
-            "description": "Origin airport IATA code to alert on.",
-            "readOnly": true,
-            "nullable": true
-          },
-          "origin_lid": {
-            "type": "string",
-            "description": "Origin airport LID code to alert on.",
-            "readOnly": true,
-            "nullable": true
-          },
-          "destination": {
-            "type": "string",
-            "description": "Destination airport ICAO, IATA, or LID code to alert on.",
-            "nullable": true
-          },
-          "destination_icao": {
-            "type": "string",
-            "description": "Destination airport ICAO code to alert on.",
-            "readOnly": true,
-            "nullable": true
-          },
-          "destination_iata": {
-            "type": "string",
-            "description": "Destination airport IATA code to alert on.",
-            "readOnly": true,
-            "nullable": true
-          },
-          "destination_lid": {
-            "type": "string",
-            "description": "Destination airport LID code to alert on.",
-            "readOnly": true,
-            "nullable": true
-          },
-          "aircraft_type": {
-            "type": "string",
-            "description": "Aircraft type ICAO code to alert on.",
-            "nullable": true
-          },
-          "created": {
-            "type": "string",
-            "description": "Time that the alert was created.",
-            "format": "date-time",
-            "readOnly": true,
-            "examples": [
-              "2021-12-31T19:59:59.000Z"
-            ]
-          },
-          "changed": {
-            "type": "string",
-            "description": "Time that the alert was last modified.",
-            "format": "date-time",
-            "readOnly": true,
-            "examples": [
-              "2021-12-31T19:59:59.000Z"
-            ]
-          },
-          "start": {
-            "type": "string",
-            "description": "Start date of alert. Should be in departure airport's\ntimezone.\n",
-            "format": "date",
-            "nullable": true
-          },
-          "end": {
-            "type": "string",
-            "description": "End date of alert (inclusive). Should be in departure airport's\ntimezone.\n",
-            "format": "date",
-            "nullable": true
-          },
-          "max_weekly": {
-            "type": "integer",
-            "description": "Reject the new alert if the estimated number of triggered alerts per\nweek based on historical flight trends would exceed this value. Check\nis only applied at alert creation/modification and does not prevent\nalerts from being delivered even if they exceed the given amount.\n",
-            "writeOnly": true,
-            "default": 1000
-          },
-          "user_ident": {
-            "type": "string",
-            "description": "Originally specified ident.",
-            "readOnly": true,
-            "nullable": true
-          },
-          "eta": {
-            "type": "integer",
-            "description": "How many minutes before a flight's ETA that an alert should be\ndelivered. Alerts will only be delivered after the flight has been in\nthe air for at least 15 minutes. Set to 0 to disable.\n",
-            "default": 0
-          },
-          "events": {
-            "$ref": "#/components/schemas/alerts_events"
-          }
-        },
-        "x-apidog-orders": [
-          "id",
-          "description",
-          "ident",
-          "ident_icao",
-          "ident_iata",
-          "origin",
-          "origin_icao",
-          "origin_iata",
-          "origin_lid",
-          "destination",
-          "destination_icao",
-          "destination_iata",
-          "destination_lid",
-          "aircraft_type",
-          "created",
-          "changed",
-          "start",
-          "end",
-          "max_weekly",
-          "user_ident",
-          "eta",
-          "events"
-        ],
-        "x-apidog-folder": "Schemas",
-        "x-apidog-ignore-properties": []
-      },
       "FlightIntent": {
         "title": "FlightIntent",
         "required": [
