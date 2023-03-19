@@ -1,0 +1,98 @@
+---
+  openapi: 3.1.0
+  info:
+    title: TripVair AI External APIs (Published)
+    description: ''
+    version: 1.0.0
+  tags:
+  - name: TripVair Flight API V1
+  - name: TripVair Flight API V1/v1
+  - name: TripVair Flight API V1/v1/skymind
+  paths:
+    "/skymind/flight/p_cancel":
+      get:
+        summary: Obtain the likelihood of flight cancellation.
+        x-apidog-folder: TripVair Flight API V1/v1/skymind
+        x-apidog-status: released
+        deprecated: false
+        description: 'Returns likely true or likely false based on predictive results
+          of the flight queried being cancelled. '
+        operationId: get_flights_by_advanced_search_with_foresight
+        tags:
+        - TripVair Flight API V1/v1/skymind
+        parameters:
+        - name: query
+          in: query
+          description: Test the hypothesis of a future flight being cancelled on the
+            date specified given numerous factors.
+          required: false
+          example: ''
+          schema:
+            type: string
+        responses:
+          '200':
+            description: OK
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties: {}
+                  x-apidog-orders: []
+                  x-apidog-ignore-properties: []
+          '400':
+            description: 'Incorrect parameter(s). Query may be incorrect.
+  
+              '
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties: {}
+                  x-apidog-orders: []
+                  x-apidog-ignore-properties: []
+        x-run-in-apidog: https://www.apidog.com/web/project/359757/apis/api-3661213-run
+    "/skymind/flight/p_late":
+      get:
+        summary: 'Test the hypothesis of a future flight being > 60 minutes late on
+          the day specified. '
+        x-apidog-folder: TripVair Flight API V1/v1/skymind
+        x-apidog-status: released
+        deprecated: false
+        description: ''
+        operationId: get_flights_by_advanced_search_with_foresight
+        tags:
+        - TripVair Flight API V1/v1/skymind
+        parameters:
+        - name: query
+          in: query
+          description: ''
+          required: false
+          example: ''
+          schema:
+            type: string
+        responses:
+          '200':
+            description: OK
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties: {}
+                  x-apidog-orders: []
+                  x-apidog-ignore-properties: []
+          '400':
+            description: 'Incorrect parameter(s). Query may be incorrect.
+  
+              '
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties: {}
+                  x-apidog-orders: []
+                  x-apidog-ignore-properties: []
+        x-run-in-apidog: https://www.apidog.com/web/project/359757/apis/api-3661237-run
+  components:
+    schemas: {}
+  servers: []
+  

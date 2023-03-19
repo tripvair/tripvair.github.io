@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.1.0",
   "info": {
     "title": "TripVair AI External APIs (Published)",
     "description": "",
@@ -7,26 +7,26 @@
   },
   "tags": [
     {
-      "name": "TripVair Flight APIs (Published)"
+      "name": "TripVair Flight API V1"
     },
     {
-      "name": "TripVair Flight APIs (Published)/v1"
+      "name": "TripVair Flight API V1/v1"
     },
     {
-      "name": "TripVair Flight APIs (Published)/v1/skymind"
+      "name": "TripVair Flight API V1/v1/skymind"
     }
   ],
   "paths": {
     "/skymind/flight/p_cancel": {
       "get": {
         "summary": "Obtain the likelihood of flight cancellation.",
-        "x-apidog-folder": "TripVair Flight APIs (Published)/v1/skymind",
+        "x-apidog-folder": "TripVair Flight API V1/v1/skymind",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "Returns likely true or likely false based on predictive results of the flight queried being cancelled. ",
         "operationId": "get_flights_by_advanced_search_with_foresight",
         "tags": [
-          "TripVair Flight APIs (Published)/v1/skymind"
+          "TripVair Flight API V1/v1/skymind"
         ],
         "parameters": [
           {
@@ -74,13 +74,13 @@
     "/skymind/flight/p_late": {
       "get": {
         "summary": "Test the hypothesis of a future flight being > 60 minutes late on the day specified. ",
-        "x-apidog-folder": "TripVair Flight APIs (Published)/v1/skymind",
+        "x-apidog-folder": "TripVair Flight API V1/v1/skymind",
         "x-apidog-status": "released",
         "deprecated": false,
         "description": "",
         "operationId": "get_flights_by_advanced_search_with_foresight",
         "tags": [
-          "TripVair Flight APIs (Published)/v1/skymind"
+          "TripVair Flight API V1/v1/skymind"
         ],
         "parameters": [
           {
